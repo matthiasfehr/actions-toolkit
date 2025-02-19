@@ -145,7 +145,7 @@ export class Build {
       if (!fs.existsSync(value)) {
         throw new Error(`secret file ${value} not found`);
       }
-      value = fs.readFileSync(value, {encoding: 'utf-8'});
+      value = fs.readFileSync(value);
     }
     const secretFile = Context.tmpName({tmpdir: Context.tmpDir()});
     fs.writeFileSync(secretFile, value);
